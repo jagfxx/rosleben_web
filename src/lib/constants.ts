@@ -69,12 +69,14 @@ export const TRUST_BADGES = [
   "No testeado en animales",
 ] as const;
 
-export const WHATSAPP_NUMBER = "573244312649";
+export const PHONE_NUMBER = "3244312649";
+export const WHATSAPP_NUMBER = `57${PHONE_NUMBER}`;
 
 export const CONTACT = {
-  instagram: "https://instagram.com/rosleben",
+  instagram: "https://instagram.com/rosleben_co",
   whatsapp: `https://wa.me/${WHATSAPP_NUMBER}`,
-  email: "mailto:hola@rosleben.com",
+  email: "mailto:roslebenco@gmail.com",
+  phone: PHONE_NUMBER,
 } as const;
 
 export const PROBLEMS = [
