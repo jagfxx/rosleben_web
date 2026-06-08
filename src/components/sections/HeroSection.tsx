@@ -4,9 +4,15 @@ import { motion } from "framer-motion";
 import { Check, Users } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { DuoPriceBlock, DuoPromoBadge } from "@/components/ui/DuoPromo";
 import { ProductShowcaseImage } from "@/components/ui/ProductShowcaseImage";
 import { handleCheckout } from "@/lib/checkout";
-import { PRODUCT_IMAGES, SATISFIED_CUSTOMERS, TRUST_BADGES } from "@/lib/constants";
+import {
+  DUO_CTA_LABEL,
+  PRODUCT_IMAGES,
+  SATISFIED_CUSTOMERS,
+  TRUST_BADGES,
+} from "@/lib/constants";
 
 export function HeroSection() {
   return (
@@ -18,9 +24,12 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-              Dúo ROSLEBEN
-            </span>
+            <div className="mb-4 flex flex-wrap items-center gap-3">
+              <DuoPromoBadge />
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                Dúo ROSLEBEN
+              </span>
+            </div>
             <h1 className="font-display text-4xl leading-[1.1] tracking-tight text-primary sm:text-5xl lg:text-6xl">
               Cabello más fuerte, brillante y saludable desde el primer lavado.
             </h1>
@@ -43,9 +52,13 @@ export function HeroSection() {
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.35} className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <FadeIn delay={0.3} className="mt-8 rounded-2xl border border-primary/15 bg-white p-5 shadow-sm shadow-primary/5">
+            <DuoPriceBlock size="md" />
+          </FadeIn>
+
+          <FadeIn delay={0.35} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Button size="lg" onClick={() => handleCheckout("duo")}>
-              Comprar ahora
+              {DUO_CTA_LABEL}
             </Button>
             <Button
               variant="outline"

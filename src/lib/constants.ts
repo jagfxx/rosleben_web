@@ -3,6 +3,8 @@ export const CONDITIONER_PRICE = 45000;
 export const INDIVIDUAL_TOTAL_PRICE = SHAMPOO_PRICE + CONDITIONER_PRICE;
 export const PRODUCT_PRICE = 80000;
 export const DUO_SAVINGS = INDIVIDUAL_TOTAL_PRICE - PRODUCT_PRICE;
+export const DUO_PROMO_BADGE = "Oferta especial · Envío gratis";
+export const DUO_CTA_LABEL = "Comprar dúo";
 
 export const PRODUCT_NAME = "Dúo ROSLEBEN";
 export const PRODUCT_DESCRIPTION =

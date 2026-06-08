@@ -5,13 +5,8 @@ import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { ProductShowcaseImage } from "@/components/ui/ProductShowcaseImage";
 import { handleCheckout } from "@/lib/checkout";
-import {
-  DUO_SAVINGS,
-  INDIVIDUAL_TOTAL_PRICE,
-  PRODUCT_IMAGES,
-  PRODUCT_PRICE,
-} from "@/lib/constants";
-import { formatPriceValue } from "@/lib/utils";
+import { DuoPriceBlock, DuoPromoBadge } from "@/components/ui/DuoPromo";
+import { DUO_CTA_LABEL, PRODUCT_IMAGES } from "@/lib/constants";
 
 const trustItems = [
   { icon: ShieldCheck, label: "Compra segura" },
@@ -39,32 +34,17 @@ export function OfferSection() {
 
           <div className="text-center lg:text-left">
             <FadeIn>
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
-                Promoción dúo
-              </span>
-              <h2 className="mt-3 font-display text-3xl md:text-4xl lg:text-5xl leading-tight text-white">
-                Todo lo que tu cabello necesita en un solo ritual.
+              <DuoPromoBadge light className="mb-4" />
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-tight text-white">
+                Oferta especial — Todo en un solo ritual
               </h2>
               <p className="mt-4 text-base text-white/80 md:text-lg">
-                Shampoo + Acondicionador — 400ml + 400ml
+                Shampoo + Acondicionador 400ml · Envío gratis incluido
               </p>
             </FadeIn>
 
             <FadeIn delay={0.15}>
-              <div className="mt-8 flex flex-col items-center gap-2 lg:items-start">
-                <span className="text-lg text-white/50 line-through">
-                  {formatPriceValue(INDIVIDUAL_TOTAL_PRICE)}
-                </span>
-                <span className="font-display text-5xl md:text-6xl text-white">
-                  {formatPriceValue(PRODUCT_PRICE)}
-                </span>
-                <span className="inline-flex rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium text-white">
-                  Ahorras {formatPriceValue(DUO_SAVINGS)} · Envío gratis
-                </span>
-              </div>
-              <p className="mt-3 text-sm text-white/60">
-                Compra los dos por separado: {formatPriceValue(INDIVIDUAL_TOTAL_PRICE)}. En dúo: {formatPriceValue(PRODUCT_PRICE)} con envío incluido.
-              </p>
+              <DuoPriceBlock light size="lg" className="mt-8 lg:text-left" />
             </FadeIn>
 
             <FadeIn delay={0.3} className="mt-10">
@@ -75,7 +55,7 @@ export function OfferSection() {
                 className="lg:w-auto"
                 onClick={() => handleCheckout("duo")}
               >
-                Comprar ahora
+                {DUO_CTA_LABEL}
               </Button>
             </FadeIn>
 

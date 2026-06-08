@@ -6,9 +6,13 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { DuoPromoBadge } from "@/components/ui/DuoPromo";
 import { handleCheckout } from "@/lib/checkout";
+import { DUO_CTA_LABEL, PRODUCT_PRICE } from "@/lib/constants";
+import { formatPriceValue } from "@/lib/utils";
 
 const navLinks = [
+  { label: "Oferta dúo", href: "#oferta" },
   { label: "Shampoo", href: "#productos" },
   { label: "Acondicionador", href: "#acondicionador" },
   { label: "Beneficios", href: "#beneficios" },
@@ -65,9 +69,12 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Button size="sm" onClick={() => handleCheckout("duo")}>
-              Comprar ahora
-            </Button>
+            <div className="flex items-center gap-3">
+              <DuoPromoBadge className="hidden xl:inline-flex" />
+              <Button size="sm" onClick={() => handleCheckout("duo")}>
+                {DUO_CTA_LABEL} · {formatPriceValue(PRODUCT_PRICE)}
+              </Button>
+            </div>
           </div>
 
           <button
@@ -104,9 +111,12 @@ export function Navbar() {
               </Link>
             </motion.div>
           ))}
-          <Button size="lg" onClick={() => { setIsOpen(false); handleCheckout("duo"); }}>
-            Comprar ahora
-          </Button>
+          <div className="flex flex-col items-center gap-4">
+            <DuoPromoBadge />
+            <Button size="lg" onClick={() => { setIsOpen(false); handleCheckout("duo"); }}>
+              {DUO_CTA_LABEL} · {formatPriceValue(PRODUCT_PRICE)}
+            </Button>
+          </div>
         </div>
       </motion.div>
     </>
