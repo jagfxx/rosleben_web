@@ -5,13 +5,18 @@ import { Lock, ShieldCheck, Truck } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { handleCheckout } from "@/lib/checkout";
-import { PRODUCT_IMAGES, PRODUCT_PRICE } from "@/lib/constants";
+import {
+  DUO_SAVINGS,
+  INDIVIDUAL_TOTAL_PRICE,
+  PRODUCT_IMAGES,
+  PRODUCT_PRICE,
+} from "@/lib/constants";
 import { formatPriceValue } from "@/lib/utils";
 
 const trustItems = [
   { icon: ShieldCheck, label: "Compra segura" },
   { icon: Lock, label: "Pago protegido" },
-  { icon: Truck, label: "Envío nacional" },
+  { icon: Truck, label: "Envío gratis" },
 ];
 
 export function OfferSection() {
@@ -35,7 +40,7 @@ export function OfferSection() {
           <div className="text-center lg:text-left">
             <FadeIn>
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
-                Oferta exclusiva
+                Promoción dúo
               </span>
               <h2 className="mt-3 font-display text-3xl md:text-4xl lg:text-5xl leading-tight text-white">
                 Todo lo que tu cabello necesita en un solo ritual.
@@ -46,12 +51,20 @@ export function OfferSection() {
             </FadeIn>
 
             <FadeIn delay={0.15}>
-              <div className="mt-8 inline-flex items-baseline gap-2">
+              <div className="mt-8 flex flex-col items-center gap-2 lg:items-start">
+                <span className="text-lg text-white/50 line-through">
+                  {formatPriceValue(INDIVIDUAL_TOTAL_PRICE)}
+                </span>
                 <span className="font-display text-5xl md:text-6xl text-white">
                   {formatPriceValue(PRODUCT_PRICE)}
                 </span>
+                <span className="inline-flex rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium text-white">
+                  Ahorras {formatPriceValue(DUO_SAVINGS)} · Envío gratis
+                </span>
               </div>
-              <p className="mt-2 text-sm text-white/60">Precio en pesos colombianos (COP)</p>
+              <p className="mt-3 text-sm text-white/60">
+                Compra los dos por separado: {formatPriceValue(INDIVIDUAL_TOTAL_PRICE)}. En dúo: {formatPriceValue(PRODUCT_PRICE)} con envío incluido.
+              </p>
             </FadeIn>
 
             <FadeIn delay={0.3} className="mt-10">
@@ -60,7 +73,7 @@ export function OfferSection() {
                 size="xl"
                 fullWidth
                 className="lg:w-auto"
-                onClick={() => handleCheckout()}
+                onClick={() => handleCheckout("duo")}
               >
                 Comprar ahora
               </Button>

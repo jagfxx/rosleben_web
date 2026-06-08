@@ -45,7 +45,7 @@ export function HeroSection() {
           </FadeIn>
 
           <FadeIn delay={0.35} className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button size="lg" onClick={() => handleCheckout()}>
+            <Button size="lg" onClick={() => handleCheckout("duo")}>
               Comprar ahora
             </Button>
             <Button

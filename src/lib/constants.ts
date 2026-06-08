@@ -1,4 +1,8 @@
-export const PRODUCT_PRICE = 88000;
+export const SHAMPOO_PRICE = 43000;
+export const CONDITIONER_PRICE = 45000;
+export const INDIVIDUAL_TOTAL_PRICE = SHAMPOO_PRICE + CONDITIONER_PRICE;
+export const PRODUCT_PRICE = 80000;
+export const DUO_SAVINGS = INDIVIDUAL_TOTAL_PRICE - PRODUCT_PRICE;
 
 export const PRODUCT_NAME = "Dúo ROSLEBEN";
 export const PRODUCT_DESCRIPTION =
@@ -15,6 +19,7 @@ export const INDIVIDUAL_PRODUCTS = [
     id: "shampoo",
     name: "Shampoo Fusión Natural de Guanábana",
     type: "Shampoo",
+    price: SHAMPOO_PRICE,
     volume: "400 ml",
     image: PRODUCT_IMAGES.shampoo,
     headline: "Limpieza profunda que respeta tu cabello.",
@@ -32,6 +37,7 @@ export const INDIVIDUAL_PRODUCTS = [
     id: "conditioner",
     name: "Acondicionador Tratamiento Capilar",
     type: "Acondicionador",
+    price: CONDITIONER_PRICE,
     volume: "400 ml",
     image: PRODUCT_IMAGES.conditioner,
     headline: "Tratamiento intensivo de medios a puntas.",

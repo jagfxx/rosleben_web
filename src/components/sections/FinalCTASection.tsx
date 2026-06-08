@@ -17,7 +17,7 @@ export function FinalCTASection() {
             efectivo y premium.
           </p>
           <div className="mt-10">
-            <Button size="xl" onClick={() => handleCheckout()}>
+            <Button size="xl" onClick={() => handleCheckout("duo")}>
               Comprar ahora
             </Button>
           </div>

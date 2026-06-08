@@ -65,7 +65,7 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Button size="sm" onClick={() => handleCheckout()}>
+            <Button size="sm" onClick={() => handleCheckout("duo")}>
               Comprar ahora
             </Button>
           </div>
@@ -104,7 +104,7 @@ export function Navbar() {
               </Link>
             </motion.div>
           ))}
-          <Button size="lg" onClick={() => { setIsOpen(false); handleCheckout(); }}>
+          <Button size="lg" onClick={() => { setIsOpen(false); handleCheckout("duo"); }}>
             Comprar ahora
           </Button>
         </div>

@@ -35,7 +35,7 @@ export function StickyCTA() {
                 {formatPriceValue(PRODUCT_PRICE)}
               </p>
             </div>
-            <Button size="md" onClick={() => handleCheckout()}>
+            <Button size="md" onClick={() => handleCheckout("duo")}>
               Comprar
             </Button>
           </div>

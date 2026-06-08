@@ -6,8 +6,9 @@ import { useRef } from "react";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
-import { handleCheckout } from "@/lib/checkout";
+import { handleCheckout, type CheckoutProduct } from "@/lib/checkout";
 import { INDIVIDUAL_PRODUCTS } from "@/lib/constants";
+import { formatPriceValue } from "@/lib/utils";
 
 type Product = (typeof INDIVIDUAL_PRODUCTS)[number];
 
@@ -108,21 +109,28 @@ export function IndividualProductSection({
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.3} className="mt-8 flex items-center gap-4">
+          <FadeIn delay={0.3} className="mt-8">
             <span
-              className={`text-sm font-medium ${
+              className={`font-display text-4xl md:text-5xl ${
+                isAccent ? "text-white" : "text-primary"
+              }`}
+            >
+              {formatPriceValue(product.price)}
+            </span>
+            <p
+              className={`mt-2 text-sm ${
                 isAccent ? "text-white/60" : "text-muted"
               }`}
             >
               Contenido neto {product.volume}
-            </span>
+            </p>
           </FadeIn>
 
           <FadeIn delay={0.4} className="mt-10">
             <Button
               size="lg"
               variant={isAccent ? "white" : "primary"}
-              onClick={() => handleCheckout()}
+              onClick={() => handleCheckout(product.id as CheckoutProduct)}
             >
               Comprar ahora
             </Button>
