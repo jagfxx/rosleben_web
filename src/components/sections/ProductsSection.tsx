@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { ProductShowcaseImage } from "@/components/ui/ProductShowcaseImage";
 import { INDIVIDUAL_PRODUCTS, PRODUCT_IMAGES } from "@/lib/constants";
 import { IndividualProductSection } from "./IndividualProductSection";
 
@@ -28,24 +27,16 @@ export function ProductsSection() {
           </FadeIn>
 
           <FadeIn delay={0.15}>
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative mx-auto max-w-3xl"
-            >
-              <div className="absolute inset-0 rounded-3xl bg-primary/5 blur-3xl" />
-              <div className="relative aspect-[16/10]">
-                <Image
-                  src={PRODUCT_IMAGES.duo}
-                  alt="Dúo ROSLEBEN"
-                  fill
-                  className="object-contain drop-shadow-xl"
-                  sizes="(max-width: 768px) 100vw, 768px"
-                />
-              </div>
-            </motion.div>
+            <ProductShowcaseImage
+              src={PRODUCT_IMAGES.duo}
+              alt="Dúo ROSLEBEN"
+              label="Ritual"
+              sublabel="Natural"
+              variant="duo"
+              aspect="aspect-[16/10]"
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="mx-auto max-w-3xl"
+            />
           </FadeIn>
         </div>
       </section>

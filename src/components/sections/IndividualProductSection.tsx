@@ -1,11 +1,10 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
 import { useRef } from "react";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { ProductShowcaseImage } from "@/components/ui/ProductShowcaseImage";
 import { handleCheckout, type CheckoutProduct } from "@/lib/checkout";
 import { INDIVIDUAL_PRODUCTS } from "@/lib/constants";
 import { formatPriceValue } from "@/lib/utils";
@@ -26,16 +25,12 @@ export function IndividualProductSection({
   variant = "light",
 }: IndividualProductSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const imageY = useTransform(scrollYProgress, [0, 1], [40, -40]);
-  const imageScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.92, 1, 0.92]);
-  const glowOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 0.7, 0.3]);
-
   const isAccent = variant === "accent";
+
+  const showcaseLabel =
+    product.id === "shampoo" ? "Shampoo" : "Tratamiento";
+  const showcaseSublabel =
+    product.id === "shampoo" ? "Fusión" : "Capilar";
 
   return (
     <section
@@ -137,35 +132,16 @@ export function IndividualProductSection({
           </FadeIn>
         </div>
 
-        {/* Image */}
-        <motion.div
-          style={{ y: imageY, scale: imageScale }}
-          className="relative mt-12 flex flex-1 items-center justify-center lg:mt-0"
-        >
-          <div className="relative aspect-[3/4] w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
-            <motion.div
-              style={{ opacity: glowOpacity }}
-              className={`absolute inset-0 rounded-full blur-3xl ${
-                isAccent ? "bg-white/20" : "bg-primary/10"
-              }`}
-            />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-              className="relative h-full w-full"
-            >
-              <Image
-                src={product.image}
-                alt={product.name}
-                fill
-                className="object-contain drop-shadow-2xl"
-                sizes="(max-width: 768px) 90vw, 45vw"
-              />
-            </motion.div>
-          </div>
-        </motion.div>
+        <div className="relative mt-12 flex flex-1 items-center justify-center lg:mt-0">
+          <ProductShowcaseImage
+            src={product.image}
+            alt={product.name}
+            label={showcaseLabel}
+            sublabel={showcaseSublabel}
+            variant={isAccent ? "accent" : "light"}
+            className="max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl"
+          />
+        </div>
       </div>
     </section>
   );

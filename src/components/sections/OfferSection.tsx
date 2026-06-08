@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { Lock, ShieldCheck, Truck } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { ProductShowcaseImage } from "@/components/ui/ProductShowcaseImage";
 import { handleCheckout } from "@/lib/checkout";
 import {
   DUO_SAVINGS,
@@ -25,16 +25,16 @@ export function OfferSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <FadeIn direction="left">
-            <div className="relative mx-auto aspect-square max-w-sm lg:max-w-md">
-              <div className="absolute inset-0 rounded-full bg-white/10 blur-3xl" />
-              <Image
-                src={PRODUCT_IMAGES.duo}
-                alt="Dúo ROSLEBEN — Shampoo 400ml + Acondicionador 400ml"
-                fill
-                className="relative object-contain drop-shadow-2xl"
-                sizes="(max-width: 768px) 80vw, 40vw"
-              />
-            </div>
+            <ProductShowcaseImage
+              src={PRODUCT_IMAGES.duo}
+              alt="Dúo ROSLEBEN — Shampoo 400ml + Acondicionador 400ml"
+              label="Oferta"
+              sublabel="Dúo"
+              variant="accent"
+              aspect="aspect-square"
+              sizes="(max-width: 768px) 80vw, 40vw"
+              className="mx-auto max-w-sm lg:max-w-md"
+            />
           </FadeIn>
 
           <div className="text-center lg:text-left">

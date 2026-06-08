@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Check, Users } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { ProductShowcaseImage } from "@/components/ui/ProductShowcaseImage";
 import { handleCheckout } from "@/lib/checkout";
 import { PRODUCT_IMAGES, SATISFIED_CUSTOMERS, TRUST_BADGES } from "@/lib/constants";
 
@@ -12,7 +12,6 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-background">
       <div className="mx-auto flex min-h-screen max-w-7xl flex-col lg:flex-row lg:items-center px-6 pt-24 pb-16 lg:px-8 lg:pt-0">
-        {/* Content */}
         <div className="relative z-10 flex flex-1 flex-col justify-center lg:pr-12 lg:max-w-xl xl:max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -70,24 +69,23 @@ export function HeroSection() {
           </FadeIn>
         </div>
 
-        {/* Product Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
           className="relative mt-10 flex flex-1 items-center justify-center lg:mt-0"
         >
-          <div className="relative aspect-[4/5] w-full max-w-lg lg:max-w-none">
-            <div className="absolute inset-0 rounded-3xl bg-primary/5 blur-3xl" />
-            <Image
-              src={PRODUCT_IMAGES.duo}
-              alt="Dúo ROSLEBEN — Shampoo y Acondicionador Fusión Natural de Guanábana"
-              fill
-              className="relative object-contain drop-shadow-2xl"
-              priority
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
+          <ProductShowcaseImage
+            src={PRODUCT_IMAGES.duo}
+            alt="Dúo ROSLEBEN — Shampoo y Acondicionador Fusión Natural de Guanábana"
+            label="Dúo"
+            sublabel="ROSLEBEN"
+            variant="duo"
+            aspect="aspect-[4/5]"
+            priority
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="max-w-lg lg:max-w-none"
+          />
         </motion.div>
       </div>
     </section>
