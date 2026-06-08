@@ -3,7 +3,7 @@ export const CONDITIONER_PRICE = 45000;
 export const INDIVIDUAL_TOTAL_PRICE = SHAMPOO_PRICE + CONDITIONER_PRICE;
 export const PRODUCT_PRICE = 80000;
 export const DUO_SAVINGS = INDIVIDUAL_TOTAL_PRICE - PRODUCT_PRICE;
-export const DUO_PROMO_BADGE = "Oferta especial · Envío gratis";
+export const DUO_PROMO_BADGE = "Oferta especial";
 export const DUO_CTA_LABEL = "Comprar dúo";
 
 export const PRODUCT_NAME = "Dúo ROSLEBEN";
@@ -14,6 +14,12 @@ export const PRODUCT_IMAGES = {
   duo: "/images/duo.png",
   shampoo: "/images/shampoo.png",
   conditioner: "/images/conditioner.png",
+} as const;
+
+export const PRODUCT_IMAGE_DIMENSIONS = {
+  duo: { width: 1254, height: 1254 },
+  shampoo: { width: 602, height: 1254 },
+  conditioner: { width: 602, height: 1254 },
 } as const;
 
 export const INDIVIDUAL_PRODUCTS = [
@@ -62,8 +68,6 @@ export const TRUST_BADGES = [
   "Sin Colorantes",
   "No testeado en animales",
 ] as const;
-
-export const SATISFIED_CUSTOMERS = "2.500+";
 
 export const WHATSAPP_NUMBER = "573244312649";
 

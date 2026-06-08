@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
+  --spacing-nav: 5.5rem;
   --color-primary: #ef436a;
   --color-primary-light: #ff8d98;
   --color-background: #fff7f8;
@@ -14,6 +15,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--spacing-nav);
 }
 
 body {
@@ -70,3 +72,4 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+

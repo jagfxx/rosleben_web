@@ -11,6 +11,7 @@
     "start": "next start",
     "lint": "next lint",
     "images:split": "node scripts/split-duo.mjs",
+    "images:process": "node scripts/process-product-images.mjs",
     "prod": "npm run build && npm run start"
   },
   "dependencies": {

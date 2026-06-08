@@ -3,6 +3,7 @@
 import { Lock, ShieldCheck, Truck } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { ParallaxOrbs } from "@/components/ui/ParallaxOrbs";
 import { ProductShowcaseImage } from "@/components/ui/ProductShowcaseImage";
 import { handleCheckout } from "@/lib/checkout";
 import { DuoPriceBlock, DuoPromoBadge } from "@/components/ui/DuoPromo";
@@ -16,8 +17,9 @@ const trustItems = [
 
 export function OfferSection() {
   return (
-    <section id="oferta" className="bg-primary py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="oferta" className="relative overflow-hidden bg-primary py-24 md:py-32">
+      <ParallaxOrbs variant="accent" />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <FadeIn direction="left">
             <ProductShowcaseImage

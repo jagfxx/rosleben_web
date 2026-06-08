@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   DUO_PROMO_BADGE,
   DUO_SAVINGS,
@@ -9,12 +10,18 @@ import { formatPriceValue } from "@/lib/utils";
 interface DuoPromoBadgeProps {
   light?: boolean;
   className?: string;
+  href?: string;
 }
 
-export function DuoPromoBadge({ light = false, className = "" }: DuoPromoBadgeProps) {
+export function DuoPromoBadge({
+  light = false,
+  className = "",
+  href = "#oferta",
+}: DuoPromoBadgeProps) {
   return (
-    <span
-      className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] ${
+    <Link
+      href={href}
+      className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] transition-transform duration-300 hover:scale-[1.03] ${
         light
           ? "bg-white/15 text-white border border-white/20"
           : "bg-primary/10 text-primary border border-primary/15"
@@ -33,7 +40,7 @@ export function DuoPromoBadge({ light = false, className = "" }: DuoPromoBadgePr
         />
       </span>
       {DUO_PROMO_BADGE}
-    </span>
+    </Link>
   );
 }
 

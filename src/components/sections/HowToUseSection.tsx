@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { HOW_TO_USE, INDIVIDUAL_PRODUCTS } from "@/lib/constants";
+import { HOW_TO_USE, INDIVIDUAL_PRODUCTS, PRODUCT_IMAGE_DIMENSIONS } from "@/lib/constants";
 
 export function HowToUseSection() {
   return (
@@ -19,12 +19,14 @@ export function HowToUseSection() {
             <FadeIn key={product.id} delay={productIndex * 0.15}>
               <div className="rounded-3xl border border-border bg-background p-6 md:p-8">
                 <div className="flex items-center gap-5">
-                  <div className="relative h-24 w-16 shrink-0 md:h-32 md:w-20">
+                  <div className="flex h-24 shrink-0 items-center md:h-32">
                     <Image
                       src={product.image}
                       alt={product.name}
-                      fill
-                      className="object-contain"
+                      width={PRODUCT_IMAGE_DIMENSIONS[product.id].width}
+                      height={PRODUCT_IMAGE_DIMENSIONS[product.id].height}
+                      unoptimized
+                      className="h-full w-auto"
                       sizes="80px"
                     />
                   </div>

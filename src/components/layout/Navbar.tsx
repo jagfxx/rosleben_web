@@ -12,7 +12,6 @@ import { DUO_CTA_LABEL, PRODUCT_PRICE } from "@/lib/constants";
 import { formatPriceValue } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Oferta dúo", href: "#oferta" },
   { label: "Shampoo", href: "#productos" },
   { label: "Acondicionador", href: "#acondicionador" },
   { label: "Beneficios", href: "#beneficios" },
@@ -69,12 +68,9 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <div className="flex items-center gap-3">
-              <DuoPromoBadge className="hidden xl:inline-flex" />
-              <Button size="sm" onClick={() => handleCheckout("duo")}>
-                {DUO_CTA_LABEL} · {formatPriceValue(PRODUCT_PRICE)}
-              </Button>
-            </div>
+            <Button size="sm" onClick={() => handleCheckout("duo")}>
+              {DUO_CTA_LABEL} · {formatPriceValue(PRODUCT_PRICE)}
+            </Button>
           </div>
 
           <button

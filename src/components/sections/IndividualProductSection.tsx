@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { ParallaxOrbs } from "@/components/ui/ParallaxOrbs";
 import { ProductShowcaseImage } from "@/components/ui/ProductShowcaseImage";
 import { handleCheckout, type CheckoutProduct } from "@/lib/checkout";
 import { INDIVIDUAL_PRODUCTS } from "@/lib/constants";
@@ -40,8 +41,9 @@ export function IndividualProductSection({
         isAccent ? "bg-primary" : "bg-white"
       }`}
     >
+      <ParallaxOrbs variant={isAccent ? "accent" : "light"} />
       <div
-        className={`mx-auto flex min-h-screen max-w-7xl flex-col px-6 pt-24 pb-20 lg:px-8 lg:py-0 ${
+        className={`mx-auto flex min-h-screen max-w-7xl flex-col px-6 pt-nav pb-20 lg:px-8 ${
           reversed ? "lg:flex-row-reverse" : "lg:flex-row"
         } lg:items-center`}
       >
