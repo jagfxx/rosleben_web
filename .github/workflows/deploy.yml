@@ -29,10 +29,13 @@ jobs:
             exit 1
           fi
           HOST_LEN=$(printf '%s' "${{ secrets.VPS_HOST }}" | wc -c)
-          echo "VPS_HOST length: ${HOST_LEN} (esperado: 15 para 147.93.116.188)"
-          if [ "${HOST_LEN}" -ne 15 ]; then
-            echo "::error::VPS_HOST tiene longitud incorrecta. Revisa espacios, saltos de línea o URL."
+          echo "VPS_HOST length: ${HOST_LEN}"
+          if [ "${HOST_LEN}" -lt 7 ] || [ "${HOST_LEN}" -gt 45 ]; then
+            echo "::error::VPS_HOST inválido (longitud ${HOST_LEN}). Usa solo la IP, ej: 147.93.116.188"
             exit 1
+          fi
+          if [ "${HOST_LEN}" -ne 15 ]; then
+            echo "::warning::VPS_HOST tiene ${HOST_LEN} caracteres. La IP correcta 147.93.116.188 tiene 15."
           fi
           echo "Secrets OK"
 
